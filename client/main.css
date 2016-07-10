@@ -1,0 +1,38 @@
+/* CSS declarations go here */
+body {
+	font-family: monospace;
+	background-color: #9BDBF5;
+}
+
+.jumbotron {
+	background-color: #9BDBF5;
+}
+
+.jumbotron h1 {
+	font-family: monospace;
+	color: #ff0;
+}
+
+h2, h3 {
+	font-family: monospace;
+	color: #ff0;
+}
+
+iframe {
+	width: 100%;
+}
+
+.list-group-item{
+	border: 0;
+	background-color: #9BDBF5;
+}
+
+.panel-default>.panel-heading {
+	background-color: #70C7E8;
+	color: #ff0;
+	border: 0;
+}
+
+.panel-body {
+	background-color: #CDEFFC;
+}
