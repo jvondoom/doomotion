@@ -1,91 +1,91 @@
 <body>
 <div>{{> loginButtons}}</div>
-<div class="container">
-      <div class="jumbotron">
-        <h1 class="text-center">[d o o m o t i o n]</h1>
-        <p class="text-center">Playing after 8pm CST. Prepare yourself.</p>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center">[d o o m o t i o n]</h1>
+      <p class="text-center">Playing after 8pm CST. Prepare yourself.</p>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <iframe src="http://vaughnlive.tv/embed/video/waf_ss?viewers=true&autoplay=true" frameborder="0" framespacing="0" width="640" height="400"></iframe>
       </div>
-      <div class="row">
-        <div class="col-md-8">
-          <iframe src="http://vaughnlive.tv/embed/video/waf_ss?viewers=true&autoplay=true" frameborder="0" framespacing="0" width="640" height="400"></iframe>
-        </div>
-        <div class="col-md-4">
-          <h2>[today's guide]</h2>
-          {{#if currentUser}}
-            <form class="form-horizontal" id="form-guide">
-              <div class="form-group col-sm-12">
-                <select id="show-1" class="form-control">
-                  <option selected disabled>First Show</option>
+      <div class="col-md-4">
+        <h2>[today's guide]</h2>
+        {{#if currentUser}}
+          <form class="form-horizontal" id="form-guide">
+            <div class="form-group col-sm-12">
+              <select id="show-1" class="form-control">
+                <option selected disabled>First Show</option>
                   {{#each shows}}
                     <option value="{{name}}">{{name}}</option>
                   {{/each}}
-                </select>
+              </select>
+            </div>
+            <div class="form-group col-sm-12">
+              <select id="show-2" class="form-control">
+                <option selected disabled>Second Show</option>
+                {{#each shows}}
+                  <option value="{{name}}">{{name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="form-group col-sm-12">
+              <select id="show-3" class="form-control">
+                <option selected disabled>Third Show</option>
+                {{#each shows}}
+                  <option value="{{name}}">{{name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="form-group col-sm-12">
+              <select id="show-4" class="form-control">
+                <option selected disabled>Forth Show</option>
+                {{#each shows}}
+                  <option value="{{name}}">{{name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-1 col-sm-11">
+                <button type="submit" class="btn btn-default">save</button>
               </div>
-              <div class="form-group col-sm-12">
-                <select id="show-2" class="form-control">
-                  <option selected disabled>Second Show</option>
-                  {{#each shows}}
-                    <option value="{{name}}">{{name}}</option>
-                  {{/each}}
-                </select>
+            </div>
+          </form>
+        {{/if}}
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          {{#each current}}
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading-{{id}}">
+                <h3 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{id}}" aria-expanded="false" aria-controls="collapse-a">
+                {{name}}
+                </a>
+                </h3>
               </div>
-              <div class="form-group col-sm-12">
-                <select id="show-3" class="form-control">
-                  <option selected disabled>Third Show</option>
-                  {{#each shows}}
-                    <option value="{{name}}">{{name}}</option>
-                  {{/each}}
-                </select>
-              </div>
-              <div class="form-group col-sm-12">
-                <select id="show-4" class="form-control">
-                  <option selected disabled>Forth Show</option>
-                  {{#each shows}}
-                    <option value="{{name}}">{{name}}</option>
-                  {{/each}}
-                </select>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-1 col-sm-11">
-                  <button type="submit" class="btn btn-default">save</button>
+              <div id="collapse-{{id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{id}}">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <td><strong>Created by</strong></td>
+                        <td>{{creator}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Origin</strong></td>
+                        <td>{{origin}}</td>
+                      </tr>
+                      <tr>
+                        <td><strong># Seasons</strong></td>
+                        <td>{{numSeasons}}</td>
+                      </tr>
+                    </thead>
+                  </table>
                 </div>
               </div>
-            </form>
-          {{/if}}
-          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            {{#each current}}
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading-{{id}}">
-                  <h3 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{id}}" aria-expanded="false" aria-controls="collapse-a">
-                  {{name}}
-                  </a>
-                  </h3>
-                </div>
-                <div id="collapse-{{id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{id}}">
-                  <div class="panel-body">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <td><strong>Created by</strong></td>
-                          <td>{{creator}}</td>
-                        </tr>
-                        <tr>
-                          <td><strong>Origin</strong></td>
-                          <td>{{origin}}</td>
-                        </tr>
-                        <tr>
-                          <td><strong># Seasons</strong></td>
-                          <td>{{numSeasons}}</td>
-                        </tr>
-                      </thead>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            {{/each}}
-          </div>
+            </div>
+          {{/each}}
         </div>
       </div>
     </div>
+  </div>
 </body>
